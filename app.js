@@ -170,7 +170,7 @@ app.get("/signup",(req,res)=>{
     res.render("users/signup.ejs");
 });
 //signup-post
-app.post("/signup",validateUser,WrapAsync(async (req,res,next)=>{
+app.post("/signup",validateUser,wrapAsync(async (req,res,next)=>{
     try{
         let {email,username,password}=req.body;
         let user=new User({
