@@ -218,9 +218,7 @@ app.get("/logout",(req,res,next)=>{
     });
     
 })
-app.get("/", (req, res) => {
-    res.redirect("/listings");
-});
+
 
 // all listings
 app.get("/listings", wrapAsync(async (req, res) => {
@@ -401,7 +399,10 @@ app.post("/bookings/:id/status",async (req,res)=>{
     booking.status=status;await booking.save();
     res.redirect(`/mybookings`);
 });
-
+//home
+app.get("/", (req, res) => {
+    res.redirect("/listings");
+});
 app.all("*",(req,res,next)=>{
     return next(new ExpressError(405,"Page not found"));
 })
