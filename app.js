@@ -218,6 +218,9 @@ app.get("/logout",(req,res,next)=>{
     });
     
 })
+app.get("/", (req, res) => {
+    res.redirect("/listings");
+});
 
 // all listings
 app.get("/listings", wrapAsync(async (req, res) => {
