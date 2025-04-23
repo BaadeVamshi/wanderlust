@@ -24,7 +24,7 @@ app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, "/public")));
 
 let ExpressError = require("./utils/ExpressError");
-let wrapAsync = require("./utils/WrapAsync.js");
+let wrapAsync=require("./utils/wrapAsync.js");
 
 const {listingSchema}=require("./schema.js");
 const {reviewSchema}=require("./schema.js");
@@ -61,7 +61,7 @@ const geocodingClient = mbxGeocoding({ accessToken: map_token });
 
 const ejsMate = require("ejs-mate");
 const { serialize, deserialize } = require("v8");
-const WrapAsync = require("./utils/WrapAsync.js");
+
 app.engine('ejs', ejsMate);
 
 const db_url=process.env.ATLAS_DB;
