@@ -1,0 +1,122 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Listings</title>
+</head> -->
+<style>
+    .fa-solid {
+        font-size: 1.5rem;
+    }
+    .filter p{
+        font-size: 0.9rem;
+    }
+    #filters{
+        display:flex;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+    .filter{
+        margin-right: 2.2rem;
+        margin-top: 2rem;
+        opacity:0.7;
+        text-align: center;
+    }
+    .filter:hover{
+        opacity:1;
+        cursor: pointer;
+    }
+    .gst{
+        display: none;
+    }
+    .tag-toggle{
+        border: 1px solid black;
+        border-radius: 1rem;
+        height: 3rem;
+        padding: 1rem;
+        display: flex;
+        align-items: center;
+        margin-left: 1rem;
+    }
+</style>
+<% layout("/layouts/boilerplate")%>
+<body>
+   <div id="filters" class="mt-3">
+    <div class="filter">
+        <div class=""><i class="fa-solid fa-fire-flame-curved"></i></div>
+        <p>Trending</p>
+    </div>
+    <div class="filter">
+        <div class=""><i class="fa-solid fa-bed"></i></i></div>
+        <p>Rooms</p>
+    </div>
+    <div class="filter">
+        <div class=""><i class="fa-solid fa-ship"></i></div>
+        <p>House Boats</p>
+    </div>
+    <div class="filter">
+        <div class=""><i class="fa-solid fa-mountain-city"></i></div>
+        <p>Iconic Cities</p>
+    </div>
+    <div class="filter">
+        <div class=""><i class="fa-brands fa-fort-awesome"></i></div>
+        <p>Castles</p>
+    </div>
+    <div class="filter">
+        <div class=""><i class="fa-solid fa-person-swimming"></i></div>
+        <p>Amazing Pools</p>
+    </div>
+    <div class="filter">
+        <div class=""><i class="fa-solid fa-campground"></i></div>
+        <p>Camping</p>
+    </div>
+    <div class="filter">
+        <div class=""><i class="fa-solid fa-cow"></i></div>
+        <p>Farms</p>
+    </div>
+    <div class="filter">
+        <div class=""><i class="fa-solid fa-snowflake"></i></div>
+        <p>Arctic</p>
+    </div>
+    <div class="filter">
+        <div class=""><i class="fa-solid fa-landmark-dome"></i></div>
+        <p>Domes</p>
+    </div>
+    <div class="tag-toggle">
+        <div class="form-check-reverse form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+            <label class="form-check-label" for="flexSwitchCheckDefault">Display total after taxes</label>
+        </div>
+    </div>
+   </div>
+    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3">
+        <% for(let list of AllListings){ %>
+            <a href="listings/<%=list._id%>" class="listing_id">
+                <div class="card col listing-card" >
+                    <img src="<%=list.image.url%>" class="card-img-top" alt="listings" style="height: 20rem;">
+                    <div class="card-img-overlay"></div>
+                    <div class="card-body">
+                      <b class="card-text"><%=list.title%></b><br>
+                      <p class="card-text">&#8377;<%=list.price.toLocaleString("en-IN")%>/night  <i class="gst">&nbsp;+18% GST</i></p>
+                    </div>
+                  </div>
+            </a>
+        <% } %> 
+    </div>
+    <script>
+        let toggle=document.querySelector("#flexSwitchCheckDefault");
+        toggle.addEventListener("change",()=>{
+            let gstToggle=document.querySelectorAll(".gst");
+            for(let list of gstToggle){
+                if(list.style.display!='inline'){
+                    list.style.display="inline";
+                }
+                else{
+                    list.style.display="none";
+                }
+            }
+        })
+    </script>
+</body>
+<!-- </html> -->

@@ -1,0 +1,30 @@
+<% layout("/layouts/boilerplate")%>
+<body>
+  <h1>My Orders (Received Bookings)</h1>
+
+  <% if (bookings.length === 0) { %>
+    <p>No bookings yet.</p>
+  <% } else { %>
+    <% bookings.forEach(booking => { %>
+      <div class="card">
+        <% if (booking.listing) { %>
+          <h3><%= booking.listing.title %></h3>
+          <p>Guest: <%= booking.guest?.username || "Unknown" %></p>
+          <p>Status: <%= booking.status %></p>
+
+          <% if (booking.status === "pending" && booking.listing) { %>
+            <form action="/bookings/<%= booking._id %>/status" method="POST">
+              <button name="status" value="accepted">Accept</button>
+              <button name="status" value="rejected">Reject</button>
+            </form>
+          <% } %>
+        <% }%>
+          
+        
+      </div>
+      <hr>
+    <% }); %>
+  <% } %>
+</body>
+
+

@@ -1,0 +1,68 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wonderlust</title>
+</head> -->
+<% layout("/layouts/boilerplate")%>
+<body>
+    <div class="col-8 offset-2">
+        <br>
+        <br>
+        <form method="post" action="/listings/<%= data._id %>?_method=PATCH" novalidate class="needs-validation" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="title" class="form-label">Title</label>
+                <input name="title"  type="text" value="<%=data.title%>" class="form-control" required>
+                <div class="valid-feedback">Looks Good!</div>
+                <div class="invalid-feedback">Invalid Title</div>
+            </div>
+            
+            
+            <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <textarea  class="form-control" name="description" rows="5" cols="20" required><%= data.description %> </textarea>
+                <div class="valid-feedback">Looks Good!</div>
+                <div class="invalid-feedback">Invalid description</div>
+            </div>
+            
+            <div class="mb-3">
+                <label for="" class="form-label">Original Image:</label>
+                <br>
+                <img src="<%=originalImageUrl%>">
+            </div>
+            <div class="mb-3">
+                <label for="image" class="form-label">Upload Image :</label>
+                <input type="file" class="form-control" name="image" placeholder="enter image URL">
+                
+            </div>
+            
+    
+            <div class="mb-3">
+                <label for="price" class="form-label">Price</label>
+                <input name="price" type="number" value="<%= data.price %>" class="form-control" required>
+                <div class="valid-feedback">Looks Good!</div>
+                <div class="invalid-feedback">Invalid price</div>
+            </div>
+    
+            <div class="mb-3">
+                <label for="location" class="form-label">Location</label>
+                <input name="location" type="text" value="<%= data.location %>" class="form-control" required>
+                <div class="valid-feedback">Looks Good!</div>
+                <div class="invalid-feedback">Invalid location</div>
+            </div>
+    
+            
+            <div class="mb-3">
+                <label for="country" class="form-label">Country</label>
+                <input name="country" type="text" value="<%= data.country %>" class="form-control" required>
+                <div class="valid-feedback">Looks Good!</div>
+                <div class="invalid-feedback">Invalid Country name</div>
+            </div>
+            
+            <button type="submit" class="btn btn-dark mb-3">Edit</button>
+        </form>
+    </div>
+    
+</body>
+<!-- </html> -->

@@ -1,0 +1,34 @@
+<% layout("/layouts/boilerplate")%>
+<body>
+  
+    <h1>My Bookings</h1>
+    <% if (bookings.length === 0) { %>
+        <p>You haven’t booked anything yet.</p>
+      <% } else { %>
+        <% bookings.forEach(booking => { %>
+          <div class="card">
+            <%if(booking.listing){%>
+              <h3><%= booking.listing.title %></h3>
+               <p>Host: <%= booking.host.username %></p>
+              <!-- <p>From:</p> -->
+              <p>Status: 
+                <% if (booking.status === "pending") { %>
+                  <span style="color:orange;">Pending</span>
+                <% } else if (booking.status === "accepted") { %>
+                  <span style="color:green;">Accepted ✅</span>
+                <% } else { %>
+                  <span style="color:red;">Rejected ❌</span>
+                <% } %>
+              </p>
+            <%} %>
+
+          
+            
+          </div>
+          <hr>
+        <% }); %>
+      <% } %>
+</body>
+
+
+
