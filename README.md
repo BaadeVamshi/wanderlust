@@ -1,4 +1,4 @@
-# 🌍 Wanderlust - 
+# 🌍 Wanderlust - Hotel Rental System
 
 Wanderlust is a full-stack web application inspired by Airbnb. It allows users to create, and manage property listings for rental stays.
 
