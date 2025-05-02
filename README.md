@@ -10,7 +10,6 @@ Wanderlust is a full-stack web application inspired by Airbnb. It allows users t
 - ⭐ Flash messages for user feedback
 - 🗺️ Integrated Google Maps API for location autocomplete
 - 🎨 Beautiful UI built with Bootstrap
-- 🛠️ MVC architecture using Express and EJS
 
 ## 🛠️ Tech Stack
 
